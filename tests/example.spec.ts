@@ -1,7 +1,5 @@
 import {test, expect} from '@playwright/test'
 
-let abc;
-
 
 // launch the browser
 
