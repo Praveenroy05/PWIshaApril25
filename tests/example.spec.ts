@@ -17,6 +17,8 @@ test('Title of the test case', async function({browser}){
 
 test('Title of the test case1', async function({page}, ){
   await page.goto("https://google.com")
+  //await page.getBy()
+  await page.getByRole('button', {name : 'Submit', exact :true})  // submits
 
 })
 

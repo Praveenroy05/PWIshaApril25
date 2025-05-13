@@ -38,10 +38,12 @@
  * 
  * 4. Write css traversing from parent to child:
  * 
- * parenttagename >> childtagname or parenttagname childtagname
+ * parenttagename >> childtagname or parentLocator childLocator
  * 
  * Ex: - input >> div (OR) input div (by just provide a space between parent and child)
  * #userEmail-wrapper input
+ * 
+ * #form #username
  * 
  * 5. By writing the locators based on the text:
  * 
@@ -51,20 +53,21 @@
  * 
  */
 
-
+/*
 // 2. xpath
 
-//  / - Absolute xpath
-// // - Relative xpath
+//  / - Absolute xpath - /html/body/div/div/section/section/h2
+// // - Relative xpath - //*[@id='login']/h2
 
-// In xpath the index will starts from 1
+// In xpath the index will starts from 1 
 
 //tagname or *[@attribute = 'value']
 
 1.// (//*[@attribute='value'])[1]
+
 //*[@id='userEmail']
 
-2. //tagname[@attribute='value']
+2. (//tagname[@attribute='value'])[1]
 
 //input[@id='userEmail']
 
@@ -91,7 +94,7 @@
 // * or tagName[contains(text(), 'Registration')]
 
 
-
+*/
 
 // 3. Playwright special methods for locators
 
@@ -107,7 +110,7 @@ page.getByText('Student Registration Form', {exact: true}) to locate by text con
 
 page.getByLabel() to locate a form control by associated label's text.
 
-page.getByPlaceholder('First Name') to locate an input by placeholder as an attribute.
+page.getByPlaceholder('First Name')  - to locate an input by placeholder as an attribute.
 
 page.getByAltText() to locate an element, usually image, by its text alternative.(alt as an attribute)
 
