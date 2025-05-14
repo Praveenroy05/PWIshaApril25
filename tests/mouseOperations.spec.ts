@@ -22,3 +22,14 @@ test("Hover over on an element", async ({page})=>{
 
     //https://webdriveruniversity.com/Popup-Alerts/index.html
 })
+
+test("Drag and drop validation", async ({page})=>{
+    await page.goto("https://jqueryui.com/resources/demos/droppable/default.html")
+
+    const dragElement = page.locator("div#draggable")
+    const dropElement = page.locator("div#droppable")
+
+    //dragTo(Locator)
+    await dragElement.dragTo(dropElement)
+    await expect(page.getByText("Dropped!")).toBeVisible()
+})
