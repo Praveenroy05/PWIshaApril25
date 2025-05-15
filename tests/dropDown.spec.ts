@@ -18,7 +18,7 @@
 // 2. DD developed using non-select tag
 // Step by step
 // Locate the drop down element
-// Click on the drop down to open the DD
+// Click on the drop down to open the DD elements
 // Locate the element that we want to select and click on that specific element
 
 
@@ -35,6 +35,19 @@ test('Drop down developed using select tag', async function({page}){
     await page.locator("#cars").selectOption([{label: 'Volvo'}, {label : 'Audi'}])
     await page.waitForTimeout(3000)
 })
+
+test.only('Handling drop down developed using non select tag', async ({page})=>{
+    await page.goto("https://demoqa.com/select-menu")
+    await page.locator("#withOptGroup").click()
+    await page.getByText("Another root option", {exact: true}).click()
+
+    await page.locator("div.css-2b097c-container").last().click()
+    await page.locator("#react-select-4-option-1").click()
+    await page.locator("#react-select-4-option-3").click()
+
+})
+
+
 
 
 
