@@ -21,7 +21,7 @@ export default defineConfig({
   workers: process.env.CI ? 10 : 1, // 8 test case will run in a parallel
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
-  timeout : 60000,
+  timeout : 20000,
   expect: {
     timeout : 10000
   },

@@ -20,7 +20,7 @@ test('Multiple windows handling', async ({page})=>{
     await page.getByText("Home").click()
     await expect(page.getByPlaceholder("Email id for Sign Up")).toBeVisible()
 
-    const count = await page.context().pages()
+    const count = await page.context().pages().length
     console.log(count)
 
 
