@@ -29,7 +29,7 @@ test("E2E automation scenario", async ({page})=>{
     await page.locator("[routerlink*='/cart']").click()
     await page.getByRole('button', {name: 'Checkout'}).click()
     await expect(page.locator("div.user__name input").first()).toHaveValue(username)
-    
+    // select the country
 
 
 
