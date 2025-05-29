@@ -18,7 +18,6 @@
 
 
 import {test, expect, request} from '@playwright/test'
-import { getToken, orderProduct } from '../utils/APIUtils'
 
 const url = "https://rahulshettyacademy.com/api/ecom/auth/login"
 const orderURL = "https://rahulshettyacademy.com/api/ecom/order/create-order"
