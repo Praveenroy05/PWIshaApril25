@@ -30,7 +30,6 @@ test('PUT method API automation', async()=>{
     // console.log(await data.keys)
     console.log(await data.name);
     console.log(await data.job);
-
 })
 
 
