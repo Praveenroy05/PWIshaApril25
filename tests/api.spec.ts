@@ -18,12 +18,15 @@
 
 
 import {test, expect, request} from '@playwright/test'
+import { getToken, orderProduct } from '../utils/APIUtils'
 
 const url = "https://rahulshettyacademy.com/api/ecom/auth/login"
+const orderURL = "https://rahulshettyacademy.com/api/ecom/order/create-order"
 const loginPayload = {userEmail: "test7lYM@gmail.com", userPassword: "Test@123"}
+const orderPayload = {orders: [{country: "Australia", productOrderedId: "67a8df1ac0d3e6622a297ccb"}]}
 
 test("Post API Call", async ()=>{
-    // apiContext
+    //apiContext
     const apiContext = await request.newContext()
 
     const apiResponse = await apiContext.post(url, {
@@ -38,7 +41,33 @@ test("Post API Call", async ()=>{
     const token = await jsonResponse.token
     console.log(token);
 
-    // eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmJjYTE3MGFlMmFmZDRjMGI0Yjg3NDgiLCJ1c2VyRW1haWwiOiJ0ZXN0N2xZTUBnbWFpbC5jb20iLCJ1c2VyTW9iaWxlIjoxMjM0NTY3ODkwLCJ1c2VyUm9sZSI6ImN1c3RvbWVyIiwiaWF0IjoxNzQ4MzYwMTQwLCJleHAiOjE3Nzk5MTc3NDB9.QR9Avmlw3k0J4_solPWjhFDWEZMqbGfndwf85srTVsg
+    const orderResponse = await apiContext.post(orderURL, {
+        data: orderPayload,
+        headers : {
+            "authorization" : token
+        }
+    })
+
+    const orderResponseJson = await orderResponse.json()
+
+    const orderID = await orderResponseJson.orders[0]
+    console.log("Order ID  = ", orderID);
+
+
+
+    // const a = 
+    // {
+    // orders: [
+    //     "6837217c81a20695304e7fed"
+    // ],
+    // productOrderId: [
+    //     "67a8df1ac0d3e6622a297ccb"
+    // ],
+    // message: "Order Placed Successfully"
+    // }
+
+    // console.log(a.orders[0])
 
 
 })
+
