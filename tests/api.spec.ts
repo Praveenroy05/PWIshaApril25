@@ -24,7 +24,7 @@ const orderURL = "https://rahulshettyacademy.com/api/ecom/order/create-order"
 const loginPayload = {userEmail: "test7lYM@gmail.com", userPassword: "Test@123"}
 const orderPayload = {orders: [{country: "Australia", productOrderedId: "67a8df1ac0d3e6622a297ccb"}]}
 
-test("Post API Call", async ()=>{
+test.only("Post API Call", async ()=>{
     //apiContext
     const apiContext = await request.newContext()
 

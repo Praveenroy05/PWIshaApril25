@@ -2,7 +2,7 @@
 
 import { test, expect } from '@playwright/test';
 
-test('test', async ({ page }) => {
+test.only('test', async ({ page }) => {
   await page.goto('https://demo.automationtesting.in/Windows.html');
   await expect(page.getByRole('button', { name: 'click' })).toBeVisible();
   await expect(page.getByRole('paragraph')).toContainText('"_blank"');
@@ -15,7 +15,7 @@ test('test', async ({ page }) => {
   await expect(page.getByRole('textbox', { name: 'Email id for Sign Up' })).toBeVisible();
 });
 
-test('test1', async ({ page }) => {
+test.only('test1', async ({ page }) => {
   await page.goto('https://practicetestautomation.com/practice-test-login/');
   await page.getByRole('textbox', { name: 'Username' }).click();
   await page.getByRole('textbox', { name: 'Username' }).fill('student');
